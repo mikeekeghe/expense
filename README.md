@@ -6,7 +6,7 @@ This Expense Tracker is a simple, intuitive, stable and feature-rich app that is
 
 Get ready to track Your expenses and stick to a budget with this easy and efficient finance planning tool that we are about to create
 
-           ## Prerequisites
+## Prerequisites
 
     • Knowledge of Basic ES6 JavaScript or typescript
 
@@ -22,5 +22,6 @@ Get ready to track Your expenses and stick to a budget with this easy and effici
 
     • API server (I used an API hosted on heroku)
 
-    # License
+# License
+
     MIT License.
