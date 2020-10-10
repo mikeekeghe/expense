@@ -3,22 +3,29 @@ import { StyleSheet } from "react-native";
 
 import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
-import ExpenseForm from "../components/custom/ExpenseForm.tsx";
+import ReportsList from "../components/custom/ReportsList.tsx";
+import TodaysReport from "../components/custom/TodaysReport.tsx";
+import YesterdaysReport from "../components/custom/YesterdaysReport.tsx";
+import ThisWeek from "../components/custom/ThisWeek.tsx";
+import ThisMonth from "../components/custom/ThisMonth.tsx";
 
-export default function TabTwoScreen() {
+export default function TabThreeScreen() {
   return (
     <View
       style={{
         flex: 1
       }}
     >
-      <Text style={styles.title}>New Transaction</Text>
+      <Text style={styles.title}>Reports</Text>
       <View
         style={styles.separator}
         lightColor="#eee"
         darkColor="rgba(255,255,255,0.1)"
       />
-      <ExpenseForm />
+      <TodaysReport />
+      <YesterdaysReport />
+      <ThisWeek />
+      <ThisMonth />
     </View>
   );
 }
