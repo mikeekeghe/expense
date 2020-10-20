@@ -7,7 +7,6 @@ import {
   TextInput,
   StyleSheet,
   KeyboardAvoidingView,
-  Picker,
   Button,
   Alert,
   Text
@@ -48,7 +47,6 @@ class ExpenseForm extends Component {
       dataSource: "",
       title: "",
       description: "",
-      category: "--Select One--",
       subcategory: "",
       thedatetime: "",
       amount: 0
@@ -90,8 +88,7 @@ class ExpenseForm extends Component {
     if (
       isEmpty(this.state.title) ||
       isEmpty(this.state.amount) ||
-      isEmpty(this.state.thedatetime) ||
-      this.state.category == "--Select One--"
+      isEmpty(this.state.thedatetime)
     ) {
       createSomethingsMissingAlert();
     } else {
@@ -99,7 +96,6 @@ class ExpenseForm extends Component {
       // let collection = {};
       formData.append("title", this.state.title);
       formData.append("amount", this.state.amount);
-      formData.append("category", this.state.category);
       formData.append("date_time", this.state.thedatetime);
 
       console.log(formData);
@@ -121,7 +117,6 @@ class ExpenseForm extends Component {
           dataSource: "",
           title: "",
           description: "",
-          category: "--Select One--",
           subcategory: "",
           thedatetime: "",
           amount: 0
@@ -168,7 +163,6 @@ class ExpenseForm extends Component {
               placeholder="Event date"
               spellCheck={false}
               editable={!this.state.showDatePicker}
-              onFocus={this.handleDatePress}
               value={formatDateTime(this.state.thedatetime)}
             />
             <DateTimePicker
@@ -178,43 +172,7 @@ class ExpenseForm extends Component {
               onCancel={this.handleDatePickerHide}
             />
           </View>
-          <View style={styles.pickerContainer}>
-            <Picker
-              selectedValue={this.state.category}
-              style={{ height: 50, width: 200 }}
-              onValueChange={(itemValue, itemIndex) =>
-                this.setState({ category: itemValue })
-              }
-            >
-              <Picker.Item label="--Select One--" value="--Select One--" />
-              <Picker.Item label="Automobile" value="Automobile" />
-              <Picker.Item label="Clothing" value="Clothing" />
-              <Picker.Item label="Debt Reduction" value="Debt Reduction" />
-              <Picker.Item label="Education" value="Education" />
-              <Picker.Item
-                label="Entertainment/Fun"
-                value="Entertainment/Fun"
-              />
-              <Picker.Item label="Family" value="Family" />
-              <Picker.Item label="Food" value="Food" />
-              <Picker.Item label="Gifts" value="Gifts" />
-              <Picker.Item label="Giving" value="Giving" />
-              <Picker.Item
-                label="Household Items/Supplies"
-                value="Household Items/Supplies"
-              />
-              <Picker.Item label="Insurance" value="Insurance" />
-              <Picker.Item label="Investments" value="Investments" />
-              <Picker.Item label="Maintenance" value="Maintenance" />
-              <Picker.Item label="Medical" value="Medical" />
-              <Picker.Item label="Personal" value="Personal" />
-              <Picker.Item label="Shelter/Home" value="Shelter/Home" />
-              <Picker.Item label="Training" value="Training" />
-              <Picker.Item label="Transportation" value="Transportation" />
-              <Picker.Item label="Travel/Vacations" value="Travel/Vacations" />
-              <Picker.Item label="Utilities" value="Utilities" />
-            </Picker>
-          </View>
+
           <TouchableHighlight onPress={this.submit} style={styles.button}>
             <Text style={styles.buttonText}>Add</Text>
           </TouchableHighlight>
@@ -254,11 +212,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#fff",
     fontSize: 18
-  },
-  pickerContainer: {
-    flex: 1,
-    paddingTop: 5,
-    alignItems: "center"
   }
 });
 
