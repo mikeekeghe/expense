@@ -163,6 +163,7 @@ class ExpenseForm extends Component {
               placeholder="Event date"
               spellCheck={false}
               editable={!this.state.showDatePicker}
+              onFocus={this.handleDatePress}
               value={formatDateTime(this.state.thedatetime)}
             />
             <DateTimePicker
